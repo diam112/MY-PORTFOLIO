@@ -1,0 +1,400 @@
+/* Reset and Basic Styles */
+:root {
+    --primary-blue: #0A2463; /* Deep, rich blue - kept for accents */
+    --accent-gold: #FFD700;   
+    --light-gold: #FFF8DC;  
+    
+    /* Adjusted Dark Theme Variables for a slightly lighter and more textured feel */
+    --background-dark-main: #111827;      /* Lighter Dark Grey/Blue for main bg */
+    --background-dark-secondary: #1F2937; /* Lighter for secondary elements/sections */
+    --navbar-bg: #0E141E;                 /* Adjusted navbar bg, still dark but fits new palette */
+
+    --text-light: #D1D5DB;                /* Adjusted for new, lighter dark backgrounds */
+    --text-secondary: #9CA3AF;             /* Adjusted for new, lighter dark backgrounds */
+    --text-heading-on-dark: var(--light-gold); 
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif; 
+    margin: 0;
+    padding: 0;
+    color: var(--text-light); 
+    line-height: 1.7;
+    background-color: var(--background-dark-main); /* Fallback */
+    /* New, more visible diagonal line texture */
+    background-image: repeating-linear-gradient(
+        -45deg,
+        var(--background-dark-main), /* Base color for the stripes */
+        var(--background-dark-main) 15px, /* Width of the base color stripe */
+        rgba(255, 255, 255, 0.035) 15px, /* Start of the lighter, faint line */
+        rgba(255, 255, 255, 0.035) 17px  /* End of the lighter, faint line (2px thick) */
+    );
+}
+
+.container {
+    width: 90%;
+    max-width: 1140px; 
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+    background: var(--navbar-bg); /* UPDATING NAVBAR BACKGROUND */
+    color: var(--text-light); /* Ensure navbar text is light */
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    color: var(--accent-gold);
+    text-decoration: none;
+    font-size: 2rem; /* INCREASED font size from 1.6rem */
+    font-weight: 700; /* Ensured bold, was bold previously */
+    font-family: 'Times New Roman', Times, serif; 
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.3); /* Added subtle gold glow */
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin-left: 25px; /* Increased spacing */
+}
+
+.nav-link {
+    color: var(--text-light); /* Light nav links */
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--accent-gold);
+}
+
+/* Optional: Underline for active nav link 
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; 
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-gold);
+}
+*/
+
+/* Hero Section */
+.hero-section {
+    /* Using a more pronounced gradient for a textured feel and clear distinction */
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--background-dark-secondary) 70%, var(--navbar-bg) 100%);
+    background-color: var(--background-dark-secondary); /* Fallback */
+    color: var(--text-light);
+    padding: 100px 0; 
+    text-align: center;
+    margin-top: 70px; /* Adjusted for navbar height (approx) */
+    min-height: 70vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid var(--accent-gold); /* Added a prominent gold border */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Shadow to lift it slightly */
+}
+
+.hero-section h1 {
+    color: var(--text-heading-on-dark); /* BRIGHTER HERO HEADING */
+    font-size: 3.5rem; 
+    margin-bottom: 15px;
+    font-weight: 700; 
+}
+
+.hero-section .hero-subtitle {
+    color: var(--text-secondary); /* SUBTLER HERO SUBTITLE */
+    font-size: 1.4rem; 
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px; /* Larger button */
+    text-decoration: none;
+    border-radius: 25px; /* Rounded buttons */
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background-color: var(--accent-gold);
+    color: var(--background-dark-main); /* Dark text on gold button */
+    border: 2px solid var(--accent-gold);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--accent-gold);
+    border: 2px solid var(--accent-gold);
+    transform: translateY(-2px) scale(1.03); /* Add slight lift and scale */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Enhance shadow on hover */
+}
+
+/* Sections General Styling */
+section {
+    padding: 80px 0;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 50px; /* Increased margin */
+    font-size: 2.5rem; /* Larger section titles */
+    color: var(--text-heading-on-dark); /* BRIGHTER SECTION HEADINGS */
+    font-weight: 600;
+    position: relative;
+}
+/* Underline effect for section titles */
+section h2::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: var(--accent-gold);
+    margin: 10px auto 0;
+}
+
+.section-subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--text-secondary); /* SUBTLER SECTION SUBTITLES */
+    font-size: 1.2rem;
+}
+
+/* About Section */
+.about-section .profile-picture {
+    display: block;
+    width: 150px; /* Adjust size as needed */
+    height: 150px; /* Adjust size as needed */
+    border-radius: 50%; /* Makes it round */
+    object-fit: cover; /* Ensures the image covers the area well without distortion */
+    margin: 0 auto 20px auto; /* Centers the image and adds space below */
+    border: 4px solid var(--accent-gold); 
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2); /* Gold glow */
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Skills Section */
+.skills-section {
+    background-color: var(--background-dark-secondary); /* Ensure it stands out from main body bg */
+    padding-top: 80px;
+    padding-bottom: 80px;
+    border-top: 1px solid var(--navbar-bg); /* Subtle separation */
+    border-bottom: 1px solid var(--navbar-bg);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust minmax for skill item size */
+    gap: 20px;
+    max-width: 900px; /* Constrain width of the grid for better centering if fewer items */
+    margin: 0 auto; /* Center the grid */
+}
+
+.skill-item {
+    background-color: var(--background-dark-secondary); /* Dark item background */
+    color: var(--accent-gold);
+    padding: 12px 20px;
+    border-radius: 25px; /* Pill shape */
+    text-align: center;
+    font-weight: 500;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    border: 1px solid var(--accent-gold); /* Gold border for definition */
+}
+
+.skill-item:hover {
+    transform: translateY(-3px);
+    background-color: var(--accent-gold);
+    color: var(--background-dark-main); /* Dark text on gold hover */
+    border-color: var(--accent-gold);
+}
+
+/* Portfolio Section */
+.portfolio-section {
+    background-color: var(--background-dark-main); /* Let cards provide the texture on a slightly flatter section bg */
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly larger minmax */
+    gap: 30px; /* Increased gap */
+}
+
+.project-item {
+    background: var(--background-dark-secondary); /* Cards are darker/different from their section bg */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3), 0 0 5px var(--accent-gold) inset; /* Outer shadow + subtle inner gold glow */
+    text-align: left; /* Align text to left for a more card-like feel */
+    overflow: hidden; /* For image fitting */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(10, 36, 99, 0.15); /* Softer blue shadow */
+}
+
+.project-item img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensures image covers the area well */
+    border-bottom: 3px solid var(--accent-gold);
+}
+
+.project-item .project-content {
+    padding: 20px;
+}
+
+.project-item h3 {
+    margin-top: 0; /* Remove top margin if image is present */
+    margin-bottom: 10px;
+    color: var(--accent-gold); /* Project titles in gold */
+    font-size: 1.4rem;
+}
+
+.project-item p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+/* Design Showcase Section */
+.designs-section {
+    background-color: var(--background-dark-secondary); /* Ensure it stands out */
+    padding-top: 80px;
+    padding-bottom: 80px;
+    border-top: 1px solid var(--navbar-bg);
+    border-bottom: 1px solid var(--navbar-bg);
+}
+
+.design-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust minmax for desired item size */
+    gap: 25px;
+}
+
+.design-item {
+    background: var(--navbar-bg); /* Darkest cards for variety */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+    overflow: hidden; /* Important for the image */
+    position: relative; /* For potential overlay later */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.design-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(10, 36, 99, 0.12);
+}
+
+.design-item img { /* Style for when you add images */
+    width: 100%;
+    height: 250px; /* Adjust as needed, or make it aspect-ratio based */
+    object-fit: cover;
+    display: block; /* Remove extra space below image */
+}
+
+.design-item h4 {
+    color: var(--accent-gold); /* Design titles in gold */
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 15px 10px;
+    margin: 0;
+    background-color: transparent; /* No background if item itself is dark */
+    border-top: 1px solid var(--primary-blue); /* Subtle separator */
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: var(--background-dark-secondary); /* Or var(--primary-blue) if you want it bluer */
+    color: var(--text-light);
+}
+
+.contact-section h2 {
+    color: var(--text-heading-on-dark);
+}
+
+.contact-section h2::after {
+    background: var(--accent-gold); 
+}
+
+.contact-section p {
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.contact-section a {
+    color: var(--accent-gold);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-section a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 0; /* Increased padding */
+    background-color: var(--navbar-bg); /* Consistent very dark footer */
+    color: var(--text-secondary);
+    width: 100%;
+    margin-top: 0; /* Remove margin-top if contact section is the last one with a background */
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--accent-gold);
+}
+
+/* Scroll Reveal Animation Styles */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+} 
